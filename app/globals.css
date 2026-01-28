@@ -1,21 +1,49 @@
 @import "tailwindcss";
 
+/* Variables */
 @theme {
-  --color-black: #001011;
-  --color-white: #F2F1F1;
-  --color-pink: #FD8EAD;
-  --font-gothic: var(--font-special-gothic);
-  --font-lexend: var(--font-lexend-deca);
-  --font-bungee: var(--font-bungee);
-
+  --color-tec-black: #001011;
+  --color-tec-white: #F2F1F1;
+  --color-tec-pink: #FD8EAD;
 }
+
+
 
 body {
-  @apply bg-white text-black font-gothic;
+  background-color: var(--color-tec-white);
+  color: var(--color-tec-black);
+  font-family: var(--font-special-gothic);
 }
+
 h1, h2, h3, h4, h5, h6 {
-  @apply font-gothic;
+  font-family: var(--font-special-gothic);
 }
-p, span, a {
-  @apply font-lexend;
+
+/* Typo scale */
+.heading-1 {
+  @apply text-4xl md:text-5xl;
 }
+.heading-2 {
+  @apply text-2xl md:text-[28px];
+}
+.heading-3 {
+  @apply text-xl md:text-2xl;
+}
+.heading-4 {
+  @apply text-lg md:text-xl;
+}
+
+/* Utilities custom */
+.font-deca {
+  font-family: var(--font-lexend-deca);
+}
+
+.font-bungee {
+  font-family: var(--font-bungee);
+}
+
+.font-gothic {
+  font-family: var(--font-special-gothic);
+}
+
+@import "./styles/components/button.css";
