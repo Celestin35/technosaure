@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Special_Gothic_Expanded_One, Lexend_Deca, Bungee } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const specialGothic = Special_Gothic_Expanded_One({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-special-gothic",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const lexendDeca = Lexend_Deca({
   subsets: ["latin"],
+  weight: "400",
+  variable: "--font-lexend-deca",
+});
+
+const bungee = Bungee({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bungee",
 });
 
 export const metadata: Metadata = {
@@ -23,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${specialGothic.variable} ${lexendDeca.variable} ${bungee.variable} antialiased`}
       >
         {children}
       </body>
