@@ -14,7 +14,7 @@ export default function Programmation() {
     ];
 
     return (
-        <section id="programmation" className="container max-md:px-4 mx-auto py-10 md:py-15">
+        <section id="programmation" className="container py-10 md:py-15">
             <h2 className="heading-2 text-center mb-10 text-tec-black">Programmation</h2>
             <div className="grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-6">
                 {artists.map((artist) => (

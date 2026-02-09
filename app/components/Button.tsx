@@ -1,4 +1,8 @@
+"use client";
+
 import Link from "next/link";
+import { useRef } from "react";
+import gsap from "gsap";
 
 type ButtonVariant = "primary" | "secondary" | "tertiary";
 
@@ -15,6 +19,7 @@ export default function Button({
   children,
   classList = "",
 }: ButtonProps) {
+  const buttonRef = useRef<HTMLAnchorElement>(null);
   const baseClass =
     "bg-tec-pink text-tec-black font-gothic border-2 border-tec-black text-center uppercase flex items-center w-fit";
 
@@ -25,8 +30,28 @@ export default function Button({
   };
 
   return (
-    <Link className={`${baseClass} ${variants[variant]} ${classList}`} href={href}>
-        {children}
+    <Link
+      ref={buttonRef}
+      className={`${baseClass} ${variants[variant]} ${classList}`}
+      href={href}
+      onMouseEnter={() => {
+        if (!buttonRef.current) return;
+        gsap.to(buttonRef.current, {
+          backgroundColor: "#F2F1F1", // Couleur de survol
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      }}
+      onMouseLeave={() => {
+        if (!buttonRef.current) return;
+        gsap.to(buttonRef.current, {
+          backgroundColor: "#FD8EAD", // Couleur de fond initiale
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      }}
+    >
+      {children}
     </Link>
   );
 }

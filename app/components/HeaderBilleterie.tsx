@@ -5,7 +5,7 @@ import HeaderContentBilleterie from "./HeaderContentBilleterie";
 export default function HeaderBilleterie() {
 
     return (
-        <section className="relative h-[60vh] w-full pt-8 md:pt-10">
+        <section className="relative h-[60vh] w-full pt-8 md:pt-10 ">
               <Image
             src="/images/bg-billeterie.jpg"
             alt="Festival Technosaure"

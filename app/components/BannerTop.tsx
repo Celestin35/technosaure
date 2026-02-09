@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function BannerTop() {
   return (
-    <div className="container max-md:px-4 mx-auto flex md:hidden justify-center items-center relative z-20 gap-4 text-center pb-8 ">
+    <div className="container flex md:hidden justify-center items-center relative z-20 gap-4 text-center pb-8 ">
         <p className="text-tec-white text-sm font-lexend">Retrouver la programmation ici</p>
         <Button href="#programmation" variant="tertiary">
           <svg

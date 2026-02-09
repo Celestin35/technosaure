@@ -4,127 +4,136 @@ export default function Prices() {
   let price: number = 0;
   let ticketAmount: number = 0;
   return (
-    <div className="container max-md:px-4 mx-auto py-10 md:py-15 flex flex-col items-center">
+    <section className="container" id="tarifs">
+      <div className="py-10 md:py-15 flex flex-col items-center ">
       <h2 className="heading-2 text-center mb-10 text-tec-black">Billets</h2>
-      <table>
-        <thead className="text-center bg-tec-black text-tec-white">
+      <div className="w-full overflow-x-auto ">
+        <table className="table-fixed w-full">
+          <thead className="text-center bg-tec-black text-tec-white">
           <tr className="font-gothic uppercase tracking-2">
-            <th className="px-10 py-4 border border-tec-white ">Tarifs</th>
-            <th className="px-10 py-4 border border-tec-white">Places</th>
-            <th className="px-10 py-4 border border-tec-white">Montant</th>
+            <th className="px-3 md:px-6 py-3 md:py-4 border border-tec-white">Tarifs</th>
+            <th className="px-3 md:px-6 py-3 md:py-4 border border-tec-white">Places</th>
+            <th className="px-3 md:px-6 py-3 md:py-4 border border-tec-white">Montant</th>
           </tr>
-          <tr className="font-lexend">
-            <td className="px-10 py-6 border border-tec-white">
+          <tr className="font-lexend text-base md:text-lg">
+            <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">
               Étudiant ou senior (+60ans)
             </td>
-            <td className="px-10 py-6 border border-tec-white flex items-center justify-between gap-10">
-              <Button variant="tertiary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="none"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
-                  />
-                </svg>{" "}
-              </Button>
-              <p>0</p>
-              <Button variant="tertiary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="none"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
-                  />
-                </svg>{" "}
-              </Button>
+            <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white align-middle ">
+              <div className="flex items-center justify-center gap-3 md:gap-8 xl:gap-12 h-full w-full">
+                <Button variant="tertiary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={16}
+                    height={16}
+                    fill="none"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
+                    />
+                  </svg>{" "}
+                </Button>
+                <p>0</p>
+                <Button variant="tertiary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={16}
+                    height={16}
+                    fill="none"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
+                    />
+                  </svg>{" "}
+                </Button>
+              </div>
             </td>
-            <td className="px-10 py-6 border border-tec-white">34,99€</td>
+            <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">34,99€</td>
           </tr>
-          <tr className="font-lexend">
-            <td className="px-10 py-6 border border-tec-white">Adulte</td>
-            <td className="px-10 py-6 border border-tec-white flex items-center justify-between gap-10">
-              <Button variant="tertiary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="none"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
-                  />
-                </svg>{" "}
-              </Button>
-              <p>0</p>
-              <Button variant="tertiary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="none"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
-                  />
-                </svg>{" "}
-              </Button>
+          <tr className="font-lexend text-base md:text-lg">
+            <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">Adulte</td>
+            <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white align-middle">
+              <div className="flex items-center justify-center gap-3 md:gap-8 xl:gap-12 h-full w-full">
+                <Button variant="tertiary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={16}
+                    height={16}
+                    fill="none"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
+                    />
+                  </svg>{" "}
+                </Button>
+                <p>0</p>
+                <Button variant="tertiary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={16}
+                    height={16}
+                    fill="none"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
+                    />
+                  </svg>{" "}
+                </Button>
+              </div>
             </td>
-            <td className="px-10 py-6 border border-tec-white">39,99€</td>
+            <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">39,99€</td>
           </tr>
-          <tr className="font-lexend">
-            <td className="px-10 py-6 border border-tec-white">
+          <tr className="font-lexend text-base md:text-lg">
+            <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">
               En situation de handicap
             </td>
-            <td className="px-10 py-6 border border-tec-white flex items-center justify-between gap-10">
-              <Button variant="tertiary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="none"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
-                  />
-                </svg>{" "}
-              </Button>
-              <p>0</p>
-              <Button variant="tertiary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={16}
-                  height={16}
-                  fill="none"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
-                  />
-                </svg>{" "}
-              </Button>
+            <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white align-middle">
+              <div className="flex items-center justify-center gap-3 md:gap-8 xl:gap-12 h-full w-full">
+                <Button variant="tertiary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={16}
+                    height={16}
+                    fill="none"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
+                    />
+                  </svg>{" "}
+                </Button>
+                <p>0</p>
+                <Button variant="tertiary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={16}
+                    height={16}
+                    fill="none"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
+                    />
+                  </svg>{" "}
+                </Button>
+              </div>
             </td>
-            <td className="px-10 py-6 border border-tec-white">29,99€</td>
+            <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">29,99€</td>
           </tr>
-        </thead>
-      </table>
-      <Button variant="secondary" classList="mx-auto mt-6 md:mt-10">
+          </thead>
+        </table>
+      </div>
+      <Button variant="secondary" classList="mx-auto mt-8 md:mt-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width={19}
@@ -140,6 +149,7 @@ export default function Prices() {
           {ticketAmount} Billets - {price}
         </span>
       </Button>
-    </div>
+      </div>
+    </section>
   );
 }

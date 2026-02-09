@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function HeaderContent() {
   return (
-    <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 gap-4 md:gap-6 pt-20 md:pt-25">
+    <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 gap-4 h-full pb-12">
       <h1 className="heading-1 uppercase text-stroke-2 font-gothic">
         23 AVRIL 2026
       </h1>

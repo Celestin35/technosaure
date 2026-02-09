@@ -3,7 +3,7 @@ import Button from "./Button";
 
 export default function Navbar() {
   return (
-    <div className="container max-md:px-4 mx-auto flex items-center justify-between relative z-10">
+    <div className="container flex items-center justify-between relative z-10">
       <div className="w-fit">
         <Link href="/">
           <p className="font-bungee text-[28px] md:text-4xl uppercase text-tec-white">
@@ -34,16 +34,16 @@ export default function Navbar() {
       <div className="hidden md:flex items-center justify-between gap-5">
         <ul className="flex items-center justify-between gap-5 text-tec-white">
           <li>
-            <Link href="#programmation">Programmation</Link>
+            <Link href="/#programmation">Programmation</Link>
           </li>
           <li>
-            <Link href="/billeterie#infos">Infos pratiques</Link>
+            <Link href="/billeterie#infos-pratiques">Infos pratiques</Link>
           </li>
           <li>
             <Link href="/contact">Contact</Link>
           </li>
         </ul>
-        <Button href="#programmation" variant="primary">
+        <Button href="/billeterie#tarifs" variant="primary">
           <span>Billeterie</span>
         </Button>
       </div>

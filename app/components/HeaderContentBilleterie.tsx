@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function HeaderContentBilleterie() {
   return (
-    <div className="relative z-20 flex flex-col items-center justify-center text-center px-4 gap-8  md:gap-12 pt-30 md:pt-25">
+    <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 gap-8 pb-12">
       <h1 className="heading-1 uppercase text-tec-white text-stroke-black-1 font-gothic">
         Billeterie
       </h1>

@@ -4,7 +4,8 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="w-full bg-tec-black text-tec-white">
-      <div className="container mx-auto max-md:px-4 py-10 md:py-15 flex flex-col md:flex-row justify-between gap-10 md:gap-0">
+ 
+      <div className="container py-10 md:py-15 flex flex-col md:flex-row justify-between gap-10 md:gap-0">
         {/* Menu  */}
         <div> 
           <h3 className="heading-3 mb-3 uppercase">Pages</h3>
@@ -13,7 +14,7 @@ export default function Footer() {
               <Link href="#programmation">Programmation</Link>
             </li>
             <li>
-              <Link href="/billeterie#infos">Infos pratiques</Link>
+              <Link href="/billeterie#infos-pratiques">Infos pratiques</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
