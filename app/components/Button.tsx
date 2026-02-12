@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 
 type ButtonVariant = "primary" | "secondary" | "tertiary";
@@ -20,38 +20,64 @@ export default function Button({
   classList = "",
 }: ButtonProps) {
   const buttonRef = useRef<HTMLAnchorElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+
   const baseClass =
-    "bg-tec-pink text-tec-black font-gothic border-2 border-tec-black text-center uppercase flex items-center w-fit";
+    "border-2 border-tec-black text-center uppercase flex items-center w-fit relative";
 
   const variants: Record<ButtonVariant, string> = {
-    primary: "px-8 py-2 justify-center", // Texte uniquement
-    secondary: "px-5 py-2 gap-2 justify-between", // Texte + icone
-    tertiary: "p-2.5 gap-2 justify-between", // Icône uniquement
+    primary: "px-8 py-2 justify-center",
+    secondary: "px-5 py-2 gap-2 justify-between",
+    tertiary: "p-2.5 gap-2 justify-between",
   };
+
+  useLayoutEffect(() => {
+    if (!buttonRef.current) return;
+    const growthDiv = buttonRef.current?.querySelector(".growthDiv") as HTMLDivElement;
+    const buttonContent = buttonRef.current?.querySelector(".childrenButtonContainer") as HTMLDivElement;
+    const buttonContentSvg = buttonContent?.querySelector("svg") as SVGElement | null;
+
+    const ctx = gsap.context(() => {
+      // Ensure initial state is always collapsed
+      gsap.set(growthDiv, { width: 0, rotate: 0 });
+      tlRef.current = gsap
+        .timeline({ paused: true })
+        .to(growthDiv, {
+          width: "100%",
+          rotate: 0,
+          duration: 0.3,
+          ease: "power2.out",
+        }).to(buttonContent, {
+          color: "#F2F1F1",
+          
+          borderColor: "#F2F1F1",
+          duration: 0.2,
+          ease: "power2.out",
+        }, "<").to(buttonContentSvg, {
+          fill: "#F2F1F1",
+          duration: 0.2,
+          ease: "power2.out",
+        }, "<")
+        ;
+    }, buttonRef);
+    
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <Link
       ref={buttonRef}
-      className={`${baseClass} ${variants[variant]} ${classList}`}
       href={href}
-      onMouseEnter={() => {
-        if (!buttonRef.current) return;
-        gsap.to(buttonRef.current, {
-          backgroundColor: "#F2F1F1", // Couleur de survol
-          duration: 0.2,
-          ease: "power2.out",
-        });
-      }}
-      onMouseLeave={() => {
-        if (!buttonRef.current) return;
-        gsap.to(buttonRef.current, {
-          backgroundColor: "#FD8EAD", // Couleur de fond initiale
-          duration: 0.2,
-          ease: "power2.out",
-        });
-      }}
+      className="relative z-10 bg-tec-pink text-tec-black font-gothic overflow-hidden h-fit"
+      onMouseEnter={() => tlRef.current?.play()}
+      onMouseLeave={() => tlRef.current?.reverse()}
     >
-      {children}
+      <div
+        className="growthDiv absolute bottom-0 left-0 h-full bg-tec-black z-20 pointer-events-none"
+        style={{ width: 0 }}
+      ></div>
+      <div className={`${baseClass} ${variants[variant]} ${classList} childrenButtonContainer relative z-30`}>{children}</div>
     </Link>
   );
 }

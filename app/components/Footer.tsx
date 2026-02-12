@@ -22,12 +22,11 @@ export default function Footer() {
           </ul>
         </div>
         {/* Bouton billeterie  */}
-        <div>
-          <h3 className="heading-3 mb-3 uppercase">Reserver</h3>
-          <Button href="/billeterie" variant="primary">
-            <span>Billeterie</span>
-          </Button>
-        </div>
+        
+        <Button href="/billeterie" variant="secondary">
+            <span>Reserver</span>
+        </Button>
+        
         {/* Réseaux sociaux  */}
         <div>
           <h3 className="heading-3 mb-3 uppercase">Suivez-nous</h3>

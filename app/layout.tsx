@@ -5,8 +5,9 @@ import {
   Bungee,
 } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "./components/SmoothScroll";
 
-//Fonts
+// Fonts
 const specialGothic = Special_Gothic_Expanded_One({
   subsets: ["latin"],
   weight: "400",
@@ -32,15 +33,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="fr" suppressHydrationWarning>
       <body
-        // Mettre les fonts en global
         className={`${specialGothic.variable} ${lexendDeca.variable} ${bungee.variable} antialiased`}
       >
+        <SmoothScroll />
         {children}
       </body>
     </html>

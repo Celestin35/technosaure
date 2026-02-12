@@ -32,7 +32,7 @@ export default function Navbar() {
         </svg>
       </div>
       <div className="hidden md:flex items-center justify-between gap-5">
-        <ul className="flex items-center justify-between gap-5 text-tec-white">
+        <ul className="desktop-navbar flex items-center justify-between gap-5 text-tec-white">
           <li>
             <Link href="/#programmation">Programmation</Link>
           </li>
@@ -43,7 +43,7 @@ export default function Navbar() {
             <Link href="/contact">Contact</Link>
           </li>
         </ul>
-        <Button href="/billeterie#tarifs" variant="primary">
+        <Button href="/billeterie" variant="primary">
           <span>Billeterie</span>
         </Button>
       </div>
