@@ -6,6 +6,8 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
+import { gsap } from "gsap";
+import { SplitText } from "gsap/dist/SplitText";
 
 // Fonts
 const specialGothic = Special_Gothic_Expanded_One({

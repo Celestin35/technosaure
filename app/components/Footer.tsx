@@ -7,9 +7,9 @@ export default function Footer() {
  
       <div className="container py-10 md:py-15 flex flex-col md:flex-row justify-between gap-10 md:gap-0">
         {/* Menu  */}
-        <div> 
+        <div className="footer-pages"> 
           <h3 className="heading-3 mb-3 uppercase">Pages</h3>
-          <ul className="flex flex-col justify-between gap-1.5 text-tec-white uppercase">
+          <ul className="flex flex-col justify-between gap-3 text-tec-white uppercase">
             <li>
               <Link href="#programmation">Programmation</Link>
             </li>
@@ -24,7 +24,7 @@ export default function Footer() {
         {/* Bouton billeterie  */}
         
         <Button href="/billeterie" variant="secondary">
-            <span>Reserver</span>
+            <span>Réserver</span>
         </Button>
         
         {/* Réseaux sociaux  */}
@@ -34,7 +34,7 @@ export default function Footer() {
             <a
               href="https://www.youtube.com/"
               aria-label="YouTube"
-              className="inline-flex h-9 w-9 items-center justify-center bg-tec-white text-tec-black transition-opacity hover:opacity-80"
+              className="inline-flex h-9 w-9 items-center justify-center bg-tec-white text-tec-black border border-transparent transition-colors duration-300 ease-in-out hover:bg-tec-black hover:text-tec-white hover:border-tec-white"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -48,7 +48,7 @@ export default function Footer() {
             <a
               href="https://www.pinterest.com/"
               aria-label="Pinterest"
-              className="inline-flex h-9 w-9 items-center justify-center bg-tec-white text-tec-black transition-opacity hover:opacity-80"
+              className="inline-flex h-9 w-9 items-center justify-center bg-tec-white text-tec-black border border-transparent transition-colors duration-300 ease-in-out hover:bg-tec-black hover:text-tec-white hover:border-tec-white"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -62,7 +62,7 @@ export default function Footer() {
             <a
               href="https://www.instagram.com/"
               aria-label="Instagram"
-              className="inline-flex h-9 w-9 items-center justify-center bg-tec-white text-tec-black transition-opacity hover:opacity-80"
+              className="inline-flex h-9 w-9 items-center justify-center bg-tec-white text-tec-black border border-transparent transition-colors duration-300 ease-in-out hover:bg-tec-black hover:text-tec-white hover:border-tec-white"
             >
               <svg
                 viewBox="0 0 24 24"

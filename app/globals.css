@@ -76,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-special-gothic);
 }
 
-.desktop-navbar a {
+.desktop-navbar a, .footer-pages a {
   text-decoration: none;
   position: relative;
   overflow: hidden;
@@ -84,8 +84,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5px 0;
 }
 
-.desktop-navbar a::before,
-.desktop-navbar a::after {
+.desktop-navbar a::before, .footer-pages a::before,
+.desktop-navbar a::after, .footer-pages a::after {
   content: "";
   position: absolute;
   background-color: var(--color-tec-white);
@@ -95,20 +95,22 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.4s;
 }
 
-.desktop-navbar a::before {
+.desktop-navbar a::before, .footer-pages a::before {
   top: 0;
   left: 0;
   transform-origin: left;
 }
 
-.desktop-navbar a::after {
+.desktop-navbar a::after, .footer-pages a::after {
   bottom: 0;
   right: 0;
   transform-origin: right;
 }
 
 .desktop-navbar a:hover::before,
-.desktop-navbar a:hover::after {
+.desktop-navbar a:hover::after,
+.footer-pages a:hover::before,
+.footer-pages a:hover::after {
   transform: scaleX(1);
 }
 

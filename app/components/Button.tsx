@@ -12,7 +12,6 @@ type ButtonProps = {
   children: React.ReactNode;
   classList?: string;
 };
-
 export default function Button({
   href = "/billeterie",
   variant = "primary",
@@ -69,15 +68,15 @@ export default function Button({
     <Link
       ref={buttonRef}
       href={href}
-      className="relative z-10 bg-tec-pink text-tec-black font-gothic overflow-hidden h-fit"
+      className="relative z-10 bg-tec-pink text-tec-black font-gothic overflow-hidden h-fit w-fit"
       onMouseEnter={() => tlRef.current?.play()}
       onMouseLeave={() => tlRef.current?.reverse()}
     >
       <div
-        className="growthDiv absolute bottom-0 left-0 h-full bg-tec-black z-20 pointer-events-none"
+        className="hidden sm:block growthDiv absolute bottom-0 left-0 h-full bg-tec-black z-20 pointer-events-none"
         style={{ width: 0 }}
       ></div>
-      <div className={`${baseClass} ${variants[variant]} ${classList} childrenButtonContainer relative z-30`}>{children}</div>
+      <div className={`${baseClass} ${variants[variant]} ${classList} sm:childrenButtonContainer relative z-30`}>{children}</div>
     </Link>
   );
 }
