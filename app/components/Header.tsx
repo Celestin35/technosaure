@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <section className="relative h-[90vh] w-full">
       <Image
-              src="/images/bg-billeterie.jpg"
+              src="/images/bg-home.jpg"
               alt="Festival Technosaure"
               fill
               priority

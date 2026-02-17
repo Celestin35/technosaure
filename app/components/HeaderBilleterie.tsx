@@ -12,7 +12,7 @@ export default function HeaderBilleterie() {
   return (
     <section className="relative h-[60vh] w-full pt-5 md:pt-10">
       <Image
-        src="/images/bg-billeterie.jpg"
+        src="/images/bg-billeterie-alt.png"
         alt="Festival Technosaure"
         fill
         priority
