@@ -1,0 +1,18 @@
+<svg width="76" height="75" viewBox="0 0 76 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="4" y1="-4" x2="79.884" y2="-4"
+        transform="matrix(0.715486 0.698627 -0.705409 0.708801 5.41309 11.123)" stroke="#FF0000"
+        stroke-width="8" stroke-linecap="round" />
+    <g filter="url(#filter0_f_116_16)">
+        <line x1="8" y1="-8" x2="79.9182" y2="-8"
+            transform="matrix(0.711606 0.702579 -0.704217 0.709985 0.682617 12.05)" stroke="#FF0000"
+            stroke-opacity="0.88" stroke-width="16" stroke-linecap="round" />
+    </g>
+    <defs>
+        <filter id="filter0_f_116_16" x="0" y="0" width="75.1958" height="74.5098"
+            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_116_16" />
+        </filter>
+    </defs>
+</svg>
