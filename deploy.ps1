@@ -9,7 +9,7 @@ $ErrorActionPreference = "Stop"
 Write-Host "Build du site..."
 npm run build
 
-# Ajoute tout le code + force le build (out/) malgre .gitignore
+# Ajoute tout le code + force le build (out/) malgre le .gitignore
 git add -A
 git add -f out
 $status = git status --porcelain
