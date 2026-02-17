@@ -101,8 +101,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       <div className="container mx-auto py-12">
         <ul className="flex flex-col gap-3 ">
           <li className="w-fit heading-2">
-              <Link href="/">Accueil</Link>
-            </li>
+            <Link href="/" onClick={handleClose}>Accueil</Link>
+          </li>
           <li className="w-fit heading-2">
             <Link href="/#programmation" onClick={handleClose}>
               Programmation

@@ -80,9 +80,11 @@ export default function Footer() {
         </div>
         {/* Logo  */}
         <div className="w-fit">
+          <Link href="/" >
           <p className="font-bungee text-[20px] md:text-3xl uppercase text-tec-white">
             TECHNOSAURE
           </p>
+          </Link>
         </div>
       </div>
       {/* Logo  */}
