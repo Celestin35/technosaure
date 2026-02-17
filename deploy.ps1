@@ -2,15 +2,21 @@ param(
   [string]$Message = "deploy"
 )
 
-# Usage: .\deploy.ps1 "message de commit"
+# Usage : .\deploy.ps1 "message de commit"
+# Deploie uniquement le build (dossier out/) vers la racine FTP.
 
 $ErrorActionPreference = "Stop"
+Write-Host "Build du site..."
+npm run build
+
+# Ajoute tout le code + force le build (out/) malgre .gitignore
+git add -A
+git add -f out
 $status = git status --porcelain
 if ($status) {
-  git add -A
   git commit -m $Message
 } else {
-  Write-Host "No changes to commit."
+  Write-Host "Aucun changement à commit."
 }
 
 git push
@@ -41,4 +47,4 @@ if (-not $env:GIT_FTP_PASSWORD) {
   }
 }
 
-git ftp push
+git ftp push --syncroot out
