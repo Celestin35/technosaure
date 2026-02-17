@@ -47,4 +47,4 @@ if (-not $env:GIT_FTP_PASSWORD) {
   }
 }
 
-git ftp push --syncroot out
+git ftp push --syncroot out --remote-root technosaure.celestin-piaton.fr
