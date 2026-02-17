@@ -1,12 +1,18 @@
+"use client";
+
 import Navbar from "./Navbar";
 import BannerTop from "./BannerTop";
 import HeaderContent from "./HeaderContent";
 import Image from "next/image";
 import MobileMenu from "./MobileMenu";
+import { useState } from "react";
 
 export default function Header() {
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
   return (
-    <section className="relative h-dvh md:h-[90vh] w-full pt-8 md:pt-10">
+    <section className="relative h-dvh md:h-[90vh] w-full">
       <Image
               src="/images/bg-billeterie.jpg"
               alt="Festival Technosaure"
@@ -16,8 +22,8 @@ export default function Header() {
             />
       <div className="absolute inset-0 bg-black opacity-30"></div>
       <BannerTop />
-      <Navbar />
-      <MobileMenu />
+      <Navbar onToggle={() => setIsMenuOpen(prev => !prev)} />
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <HeaderContent />
     </section>
   );

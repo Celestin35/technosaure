@@ -11,13 +11,16 @@ export default function Footer() {
           <h3 className="heading-3 mb-3 uppercase">Pages</h3>
           <ul className="flex flex-col justify-between gap-3 text-tec-white uppercase">
             <li>
-              <Link href="#programmation">Programmation</Link>
+              <Link href="/">Accueil</Link>
+            </li>
+            <li>
+              <Link href="/#programmation">Programmation</Link>
             </li>
             <li>
               <Link href="/billeterie#infos-pratiques">Infos pratiques</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/">Contact</Link>
             </li>
           </ul>
         </div>

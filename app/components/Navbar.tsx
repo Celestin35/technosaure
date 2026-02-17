@@ -5,7 +5,11 @@ import Button from "./Button";
 import { gsap } from "gsap";
 import { useLayoutEffect, useRef } from "react";
 
-export default function Navbar() {
+type NavbarProps = {
+  onToggle: () => void;
+};
+
+export default function Navbar({ onToggle }: NavbarProps) {
   const navRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
@@ -28,9 +32,9 @@ export default function Navbar() {
   return (
     <div
       ref={navRef}
-      className="w-dvw relative opacity-0 invisible"
+      className="w-full relative opacity-0 invisible"
     >
-      <div className="container flex items-center justify-between z-10 relative">
+      <div className="container flex items-center justify-between z-10 relative sm:py-8">
         <div className="w-fit">
           <Link href="/">
             <p className="font-bungee text-[28px] md:text-4xl uppercase text-tec-white">
@@ -38,7 +42,7 @@ export default function Navbar() {
             </p>
           </Link>
         </div>
-        <div className="block md:hidden w-fit">
+        <div className="block md:hidden w-fit" onClick={onToggle}>
           <svg
             width={30}
             height={16}
@@ -67,7 +71,7 @@ export default function Navbar() {
               <Link href="/billeterie#infos-pratiques">Infos pratiques</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/">Contact</Link>
             </li>
           </ul>
           <Button href="/billeterie" variant="primary">

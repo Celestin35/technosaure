@@ -9,6 +9,7 @@ export default function SmoothScroll() {
       lerp: 0.08,
       smoothWheel: true,
     });
+    (window as any).__lenis = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -38,6 +39,7 @@ export default function SmoothScroll() {
 
     return () => {
       document.removeEventListener("click", onClick);
+      (window as any).__lenis = null;
       lenis.destroy();
     };
   }, []);

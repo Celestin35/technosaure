@@ -35,33 +35,58 @@ export default function Button({
     const growthDiv = buttonRef.current?.querySelector(".growthDiv") as HTMLDivElement;
     const buttonContent = buttonRef.current?.querySelector(".childrenButtonContainer") as HTMLDivElement;
     const buttonContentSvg = buttonContent?.querySelector("svg") as SVGElement | null;
+    const mm = gsap.matchMedia();
+    const baseColor = "var(--color-tec-black)";
 
     const ctx = gsap.context(() => {
-      // Ensure initial state is always collapsed
       gsap.set(growthDiv, { width: 0, rotate: 0 });
-      tlRef.current = gsap
-        .timeline({ paused: true })
-        .to(growthDiv, {
-          width: "100%",
-          rotate: 0,
-          duration: 0.3,
-          ease: "power2.out",
-        }).to(buttonContent, {
-          color: "#F2F1F1",
-          
-          borderColor: "#F2F1F1",
-          duration: 0.2,
-          ease: "power2.out",
-        }, "<").to(buttonContentSvg, {
-          fill: "#F2F1F1",
-          duration: 0.2,
-          ease: "power2.out",
-        }, "<")
-        ;
+
+      mm.add("(min-width: 768px)", () => {
+        tlRef.current = gsap
+          .timeline({ paused: true })
+          .to(growthDiv, {
+            width: "100%",
+            rotate: 0,
+            duration: 0.3,
+            ease: "power2.out",
+          })
+          .to(
+            buttonContent,
+            {
+              color: "#F2F1F1",
+              borderColor: "#F2F1F1",
+              duration: 0.2,
+              ease: "power2.out",
+            },
+            "<",
+          )
+          .to(
+            buttonContentSvg,
+            {
+              fill: "#F2F1F1",
+              duration: 0.2,
+              ease: "power2.out",
+            },
+            "<",
+          );
+
+        return () => {
+          tlRef.current = null;
+        };
+      });
+
+      mm.add("(max-width: 767px)", () => {
+        gsap.set(buttonContent, { color: baseColor, borderColor: baseColor, backgroundColor: "var(--color-tec-pink)" });
+        gsap.set(buttonContentSvg, { fill: baseColor });
+      });
+
     }, buttonRef);
     
 
-    return () => ctx.revert();
+    return () => {
+      mm.revert();
+      ctx.revert();
+    };
   }, []);
 
   return (
@@ -73,10 +98,10 @@ export default function Button({
       onMouseLeave={() => tlRef.current?.reverse()}
     >
       <div
-        className="hidden sm:block growthDiv absolute bottom-0 left-0 h-full bg-tec-black z-20 pointer-events-none"
+        className="block growthDiv absolute bottom-0 left-0 h-full bg-tec-black z-20 pointer-events-none"
         style={{ width: 0 }}
       ></div>
-      <div className={`${baseClass} ${variants[variant]} ${classList} sm:childrenButtonContainer relative z-30`}>{children}</div>
+      <div className={`${baseClass} ${variants[variant]} ${classList} childrenButtonContainer relative z-30`}>{children}</div>
     </Link>
   );
 }

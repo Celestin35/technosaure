@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body
-        className={`${specialGothic.variable} ${lexendDeca.variable} ${bungee.variable} antialiased`}
+        className={`${specialGothic.variable} ${lexendDeca.variable} ${bungee.variable} antialiased overflow-x-hidden`}
       >
         <SmoothScroll />
         {children}

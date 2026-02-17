@@ -1,8 +1,22 @@
+"use client";
+import { useState } from "react";
 import Button from "./Button";
 
 export default function Prices() {
-  let price: number = 0;
-  let ticketAmount: number = 0;
+  const studentPrice = 34.99;
+  const adultPrice = 39.99;
+  const handicapPrice = 29.99;
+
+  const [amountStudentTicket, setAmountStudentTicket] = useState(0);
+  const [amountAdultTicket, setAmountAdultTicket] = useState(0);
+  const [amountHandicapTicket, setAmountHandicapTicket] = useState(0);
+  const ticketAmount =
+    amountStudentTicket + amountAdultTicket + amountHandicapTicket;
+  const totalPrice =
+    amountStudentTicket * studentPrice +
+    amountAdultTicket * adultPrice +
+    amountHandicapTicket * handicapPrice;
+  
   return (
     <section className="container" id="tarifs">
       <div className="py-10 md:py-15 flex flex-col items-center ">
@@ -21,13 +35,51 @@ export default function Prices() {
                   Montant
                 </th>
               </tr>
+            </thead>
+            <tbody className="text-center bg-tec-black text-tec-white">
               <tr className="font-lexend text-base md:text-lg">
                 <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">
                   Étudiant ou senior (+60ans)
                 </td>
                 <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white align-middle ">
-                  <div className="flex items-center justify-center gap-3 md:gap-8 xl:gap-12 h-full w-full">
-                    <Button variant="tertiary">
+                  <div className="grid grid-cols-2 items-center justify-center gap-3 md:gap-8 xl:gap-12 h-full w-full md:flex md:items-center md:justify-center">
+                    <div
+                      className="col-start-1 row-start-2 md:col-auto md:row-auto"
+                      onClick={() => {
+                        setAmountStudentTicket(prev => {
+                          if (prev === 0) return prev;
+                          return prev - 1;
+                        });
+                      }}
+                    >
+                      <Button variant="tertiary" classList="bg-tec-pink">
+                        <svg
+                          width={16}
+                          height={16}
+                          viewBox="0 0 19 2"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <line
+                            y1="0.582857"
+                            x2="18.8276"
+                            y2="0.582857"
+                            stroke="currentColor"
+                            strokeWidth="1.16583"
+                          />
+                        </svg>
+                      </Button>
+                    </div>
+                    <p className="col-span-2 row-start-1 text-center md:col-auto md:row-auto">
+                      {amountStudentTicket}
+                    </p>
+                    <div
+                      className="col-start-2 row-start-2 md:col-auto md:row-auto"
+                      onClick={() => {
+                        setAmountStudentTicket(prev => prev + 1);
+                      }}
+                    >
+                      <Button variant="tertiary" classList="bg-tec-pink">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={16}
@@ -40,22 +92,8 @@ export default function Prices() {
                           d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
                         />
                       </svg>{" "}
-                    </Button>
-                    <p>0</p>
-                    <Button variant="tertiary">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={16}
-                        height={16}
-                        fill="none"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
-                        />
-                      </svg>{" "}
-                    </Button>
+                      </Button>
+                    </div>
                   </div>
                 </td>
                 <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">
@@ -67,8 +105,44 @@ export default function Prices() {
                   Adulte
                 </td>
                 <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white align-middle">
-                  <div className="flex items-center justify-center gap-3 md:gap-8 xl:gap-12 h-full w-full">
-                    <Button variant="tertiary">
+                  <div className="grid grid-cols-2 items-center justify-center gap-3 md:gap-8 xl:gap-12 h-full w-full md:flex md:items-center md:justify-center">
+                    <div
+                      className="col-start-1 row-start-2 md:col-auto md:row-auto"
+                      onClick={() => {
+                        setAmountAdultTicket(prev => {
+                          if (prev === 0) return prev;
+                          return prev - 1;
+                        });
+                      }}
+                    >
+                      <Button variant="tertiary" classList="bg-tec-pink">
+                        <svg
+                          width={16}
+                          height={16}
+                          viewBox="0 0 19 2"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <line
+                            y1="0.582857"
+                            x2="18.8276"
+                            y2="0.582857"
+                            stroke="currentColor"
+                            strokeWidth="1.16583"
+                          />
+                        </svg>
+                      </Button>
+                    </div>
+                    <p className="col-span-2 row-start-1 text-center md:col-auto md:row-auto">
+                      {amountAdultTicket}
+                    </p>
+                    <div
+                      className="col-start-2 row-start-2 md:col-auto md:row-auto"
+                      onClick={() => {
+                        setAmountAdultTicket(prev => prev + 1);
+                      }}
+                    >
+                      <Button variant="tertiary" classList="bg-tec-pink">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={16}
@@ -81,22 +155,8 @@ export default function Prices() {
                           d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
                         />
                       </svg>{" "}
-                    </Button>
-                    <p>0</p>
-                    <Button variant="tertiary">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={16}
-                        height={16}
-                        fill="none"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
-                        />
-                      </svg>{" "}
-                    </Button>
+                      </Button>
+                    </div>
                   </div>
                 </td>
                 <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">
@@ -108,8 +168,44 @@ export default function Prices() {
                   En situation de handicap
                 </td>
                 <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white align-middle">
-                  <div className="flex items-center justify-center gap-3 md:gap-8 xl:gap-12 h-full w-full">
-                    <Button variant="tertiary">
+                  <div className="grid grid-cols-2 items-center justify-center gap-3 md:gap-8 xl:gap-12 h-full w-full md:flex md:items-center md:justify-center">
+                    <div
+                      className="col-start-1 row-start-2 md:col-auto md:row-auto"
+                      onClick={() => {
+                        setAmountHandicapTicket(prev => {
+                          if (prev === 0) return prev;
+                          return prev - 1;
+                        });
+                      }}
+                    >
+                      <Button variant="tertiary" classList="bg-tec-pink">
+                        <svg
+                          width={16}
+                          height={16}
+                          viewBox="0 0 19 2"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <line
+                            y1="0.582857"
+                            x2="18.8276"
+                            y2="0.582857"
+                            stroke="currentColor"
+                            strokeWidth="1.16583"
+                          />
+                        </svg>
+                      </Button>
+                    </div>
+                    <p className="col-span-2 row-start-1 text-center md:col-auto md:row-auto">
+                      {amountHandicapTicket}
+                    </p>
+                    <div
+                      className="col-start-2 row-start-2 md:col-auto md:row-auto"
+                      onClick={() => {
+                        setAmountHandicapTicket(prev => prev + 1);
+                      }}
+                    >
+                      <Button variant="tertiary" classList="bg-tec-pink">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width={16}
@@ -122,29 +218,15 @@ export default function Prices() {
                           d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
                         />
                       </svg>{" "}
-                    </Button>
-                    <p>0</p>
-                    <Button variant="tertiary">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={16}
-                        height={16}
-                        fill="none"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M8 1a.5.5 0 0 1 .5.5v6h6a.5.5 0 0 1 0 1h-6v6a.5.5 0 0 1-1 0v-6h-6a.5.5 0 0 1 0-1h6v-6A.5.5 0 0 1 8 1z"
-                        />
-                      </svg>{" "}
-                    </Button>
+                      </Button>
+                    </div>
                   </div>
                 </td>
                 <td className="px-3 md:px-6 py-4 md:py-6 border border-tec-white">
                   29,99€
                 </td>
               </tr>
-            </thead>
+            </tbody>
           </table>
         </div>
         
@@ -162,7 +244,7 @@ export default function Prices() {
               />
             </svg>
             <span>
-              {ticketAmount} Billets - {price}
+              {ticketAmount} Billets - {totalPrice.toFixed(2)}€
             </span>
           </Button>
       

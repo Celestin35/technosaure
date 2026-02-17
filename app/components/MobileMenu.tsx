@@ -1,15 +1,68 @@
+"use client";
+
 import Button from "./Button";
 import Link from "next/link";
+import gsap from "gsap";
+import { useLayoutEffect, useRef, useEffect } from "react";
 
-export default function MobileMenu() {
+type MobileMenuProps = {
+  isOpen: boolean;
+  onClose: () => void;
+};
+
+export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+
+  const menuRef = useRef<HTMLDivElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+  const handleClose = () => onClose();
+
+  useLayoutEffect(() => {
+    if (!menuRef.current) return;
+
+    tlRef.current = gsap
+      .timeline({ paused: true })
+      .to(menuRef.current, {
+        right: "0%",
+        duration: 0.3,
+        ease: "power2.out",
+        onStart: () => {
+          document.body.style.overflow = "hidden";
+          (window as any).__lenis?.stop?.();
+        },
+        onReverseComplete: () => {
+          document.body.style.overflow = "";
+          (window as any).__lenis?.start?.();
+        },
+      });
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!tlRef.current) return;
+
+    isOpen ? tlRef.current.play() : tlRef.current.reverse();
+  }, [isOpen]);
+
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+      (window as any).__lenis?.start?.();
+    };
+  }, []);
+
+
   return (
-    <div className="absolute w-full h-dvh bg-tec-black top-0 left-0 text-tec-white z-100 hidden">
+    <div
+      ref={menuRef}
+      className="absolute w-full h-dvh bg-tec-black top-0 text-tec-white z-100 -right-[110%]"
+    >
       <div className="w-full bg-tec-white text-tec-black">
-        <div className="container mx-auto flex items-center justify-between py-4">
+        <div className="container mx-auto flex items-center justify-between py-5">
           <div className="w-fit">
+            <Link href="/">
             <p className="heading-2 font-bungee">Technosaure</p>
+            </Link>
           </div>
-          <div>
+          <div onClick={handleClose}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -48,17 +101,28 @@ export default function MobileMenu() {
       <div className="container mx-auto py-12">
         <ul className="flex flex-col gap-3 ">
           <li className="w-fit heading-2">
-            <Link href="/#programmation">Programmation</Link>
+              <Link href="/">Accueil</Link>
+            </li>
+          <li className="w-fit heading-2">
+            <Link href="/#programmation" onClick={handleClose}>
+              Programmation
+            </Link>
           </li>
           <li className="w-fit heading-2">
-            <Link href="/billeterie#infos-pratiques">Infos pratiques</Link>
+            <Link href="/billeterie#infos-pratiques" onClick={handleClose}>
+              Infos pratiques
+            </Link>
           </li>
           <li className="w-fit heading-2 mb-4">
-            <Link href="/contact">Contact</Link>
+            <Link href="/" onClick={handleClose}>
+              Contact
+            </Link>
           </li>
-          <Button href="/billeterie" variant="primary">
-            <span>Billeterie</span>
-          </Button>
+          <div onClick={handleClose}>
+            <Button href="/billeterie" variant="primary">
+              <span>Billeterie</span>
+            </Button>
+          </div>
         </ul>
 
         <div className="w-full h-px bg-tec-white mt-12 mb-8"></div>
